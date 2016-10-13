@@ -67,7 +67,7 @@ public class RegisterController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(customer.getPassword());
 
-        customer.setPassword(hashedPassword);
+        //customer.setPassword(hashedPassword);
         customer.setEnabled(true);
         customerService.addCustomer(customer);
 

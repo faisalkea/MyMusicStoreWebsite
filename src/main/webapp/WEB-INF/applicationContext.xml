@@ -9,18 +9,17 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <!--<property name="driverClassName" value="org.h2.Driver" />-->
 
-        <!--<property name="url" value="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_16125c005eccd03?reconnect=true"/>-->
-        <!--<property name="username" value="bc90fb2d11bfb9"/>-->
-        <!--<property name="password" value="6dc44de9"/>-->
+        <property name="url" value="jdbc:mysql://devopsbuddy.cz2bw4gigdob.eu-west-1.rds.amazonaws.com:3306/DevopsBuddy"/>
+        <property name="username" value="faisaljarkass"/>
+        <property name="password" value="Kommer6083"/>
 
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/MusicStoreWebsite"/>
-        <property name="username" value="root"/>
-        <property name="password" value="password"/>
+        <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/MusicStoreWebsite"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="password"/>-->
 
         <!--<property name="url" value="jdbc:h2:tcp://localhost/~/test" />-->
         <!--<property name="username" value="sa"/>-->
         <!--<property name="password" value="" />-->
-
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -66,7 +65,7 @@
         <security:authentication-provider>
             <security:jdbc-user-service data-source-ref="dataSource"
                                         authorities-by-username-query="SELECT username, authority From authorities WHERE username = ?"
-                                        users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?"/>
+                                        users-by-username-query="SELECT username, password, enabled FROM user WHERE username = ?"/>
         </security:authentication-provider>
     </security:authentication-manager>
 

@@ -5,6 +5,7 @@ import com.musicstorewebsite.model.Customer;
 import com.musicstorewebsite.model.ShippingAddress;
 import com.musicstorewebsite.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -63,6 +64,10 @@ public class RegisterController {
             }
         }
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(customer.getPassword());
+
+        customer.setPassword(hashedPassword);
         customer.setEnabled(true);
         customerService.addCustomer(customer);
 
